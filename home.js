@@ -1,39 +1,49 @@
 ModAPI.require("player");
+ModAPI.require("ItemID");
 
-var houseActive = false; // Variable to track whether or not the house building mode is active
+// Define item ID for house egg
+var houseEggID = ItemID.house_egg;
 
-window.addEventListener("keydown", (event) => {
-  if (event.key.toLowerCase() === "h") {
-    houseActive = true; // Set house building mode to be active when "h" is pressed
-  }
-});
+Item.registerUseFunction(houseEggID, function(coords, item, block){
+    var player = Player.get();
+    var pos = coords.relative;
 
-window.addEventListener("keyup", (event) => {
-  if (event.key.toLowerCase() === "h") {
-    houseActive = false; // Set house building mode to be inactive when "h" is released
-  }
-});
-
-ModAPI.addEventListener("update", () => {
-  if (!houseActive) {
-    return; // Exit if house building mode is not active
-  }
-
-  var playerPos = ModAPI.player.getPosition(); // Get player's position
-  var world = ModAPI.getWorld(); // Get the world
-
-  // Build a simple house with cobblestone
-  for (var x = -2; x <= 2; x++) {
-    for (var y = 0; y <= 2; y++) {
-      for (var z = -2; z <= 2; z++) {
-        world.setBlock(playerPos.x + x, playerPos.y + y, playerPos.z + z, 4); // Place cobblestone blocks
-      }
+    // Check if the item is used on a solid block
+    if (block.id === 1) { // 1 is the block ID for stone in Minecraft, you can change it accordingly
+        buildHouse(pos.x, pos.y, pos.z);
+        Player.decreaseCarriedItem(1); // Decrease item count after usage
     }
-  }
-
-  // Place a door
-  world.setBlock(playerPos.x, playerPos.y + 1, playerPos.z + 2, 64);
-
-  // Push changes
-  ModAPI.player.reload();
 });
+
+function buildHouse(x, y, z) {
+    var world = World.getWorld();
+
+    // Build a simple house with cobblestone
+    // Foundation
+    for (var i = -2; i <= 2; i++) {
+        for (var j = -2; j <= 2; j++) {
+            world.setBlock(x + i, y - 1, z + j, 4); // Place cobblestone blocks as foundation
+        }
+    }
+
+    // Walls
+    for (var i = -2; i <= 2; i++) {
+        for (var j = 0; j <= 2; j++) {
+            world.setBlock(x + i, y + j, z - 2, 4); // Place cobblestone blocks as back wall
+            world.setBlock(x + i, y + j, z + 2, 4); // Place cobblestone blocks as front wall
+        }
+    }
+
+    // Roof
+    for (var i = -2; i <= 2; i++) {
+        for (var j = 0; j <= 2; j++) {
+            if (j === 2) {
+                world.setBlock(x + i, y + j, z - 1, 4); // Place cobblestone blocks as roof
+                world.setBlock(x + i, y + j, z + 1, 4); // Place cobblestone blocks as roof
+            }
+        }
+    }
+
+    // Door
+    world.setBlock(x, y, z + 2, 64); // Place door
+}
