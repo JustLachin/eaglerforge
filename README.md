@@ -8,4 +8,12 @@ To download the latest version of EaglerForge, please visit: [https://github.com
 ## Maded by [https://github.com/eaglerforge/](https://github.com/eaglerforge/).  <--- (İT'S NOT ME!)
 
 
-# IP's ArchMC - wss://mc.arch.lol PostClue - wss://play.craftclue.rocks Legxnd SMP - wss://legxndsmp.minecraft.pe Zentic - wss://zentic.cc Asspixel - wss://mc.asspixel.net/ Ayunboom - wss://sus.shhnowisnottheti.me Aeon Network - wss://aeon-network.net/1.8 Aeon Pitfall - wss://us.aeon-network.net/1.8 MercuryMC - wss://mercurymc.net
+# IP's ArchMC - wss://mc.arch.lol 
+# PostClue - wss://play.craftclue.rocks 
+# Legxnd SMP - wss://legxndsmp.minecraft.pe 
+# Zentic - wss://zentic.cc 
+# Asspixel - wss://mc.asspixel.net/ 
+# Ayunboom - wss://sus.shhnowisnottheti.me 
+# Aeon Network - wss://aeon-network.net/1.8 
+# Aeon Pitfall - wss://us.aeon-network.net/1.8 
+# MercuryMC - wss://mercurymc.net
