@@ -8,6 +8,9 @@ To download the latest version of EaglerForge, please visit: [https://github.com
 ## Maded by [https://github.com/eaglerforge/](https://github.com/eaglerforge/).  <--- (İT'S NOT ME!)
 
 
+# SERVERS LIST: https://servers.eaglercraft.com/
+
+
 # IP's ArchMC - wss://mc.arch.lol 
 # PostClue - wss://play.craftclue.rocks 
 # Legxnd SMP - wss://legxndsmp.minecraft.pe 
